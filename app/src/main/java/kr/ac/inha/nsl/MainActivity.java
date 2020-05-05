@@ -83,7 +83,6 @@ public class MainActivity extends Activity {
     IntentFilter intentFilter;
 
     private SharedPreferences loginPrefs;
-    private SharedPreferences locationPrefs;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -146,7 +145,6 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
         loginPrefs = getSharedPreferences("UserLogin", MODE_PRIVATE);
-        locationPrefs = getSharedPreferences("UserLocations", MODE_PRIVATE);
 
         int ema_order = Tools.getEMAOrderFromRangeAfterEMA(Calendar.getInstance());
         if (ema_order == 0) {

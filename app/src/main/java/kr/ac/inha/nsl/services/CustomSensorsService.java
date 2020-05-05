@@ -140,9 +140,7 @@ public class CustomSensorsService extends Service implements SensorEventListener
 
             //region Sending Notification periodically
             short ema_order = Tools.getEMAOrderAtExactTime(curCal);
-            Log.e(TAG, "Running...");
             if (ema_order != 0 && canSendNotif) {
-                Log.e(TAG, "Notification time");
                 sendNotification(ema_order);
                 loginPrefs = getSharedPreferences("UserLogin", MODE_PRIVATE);
                 SharedPreferences.Editor editor = loginPrefs.edit();
