@@ -140,7 +140,9 @@ public class CustomSensorsService extends Service implements SensorEventListener
 
             //region Sending Notification periodically
             short ema_order = Tools.getEMAOrderAtExactTime(curCal);
+            Log.e(TAG, "Running...");
             if (ema_order != 0 && canSendNotif) {
+                Log.e(TAG, "Notification time");
                 sendNotification(ema_order);
                 loginPrefs = getSharedPreferences("UserLogin", MODE_PRIVATE);
                 SharedPreferences.Editor editor = loginPrefs.edit();
@@ -149,7 +151,7 @@ public class CustomSensorsService extends Service implements SensorEventListener
                 canSendNotif = false;
             }
 
-            if (curCal.get(Calendar.MINUTE) != 0)
+            if (curCal.get(Calendar.MINUTE) > 0)
                 canSendNotif = true;
             //endregion
 
@@ -516,10 +518,9 @@ public class CustomSensorsService extends Service implements SensorEventListener
         final NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent notificationIntent = new Intent(CustomSensorsService.this, EMAActivity.class);
-        Log.e(TAG, "EMA order 2: " + ema_order);
         notificationIntent.putExtra("ema_order", ema_order);
         //PendingIntent pendingIntent = PendingIntent.getActivities(CustomSensorsService.this, 0, new Intent[]{notificationIntent}, 0);
-        PendingIntent pendingIntent = PendingIntent.getActivity(CustomSensorsService.this, 0,notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(CustomSensorsService.this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         String channelId = this.getString(R.string.notif_channel_id);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this.getApplicationContext(), channelId);

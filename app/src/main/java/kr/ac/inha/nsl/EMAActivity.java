@@ -126,7 +126,6 @@ public class EMAActivity extends AppCompatActivity {
                         body.put("password", password);
                         body.put("ema_timestamp", timestamp);
                         body.put("ema_order", emaOrder);
-                        Log.e(TAG, "EMA order 3: " + emaOrder);
                         String answers = String.format(Locale.US, "%d %d %d %d %d %d %d %d %d",
                                 answer1.getProgress() + 1,
                                 answer2.getProgress() + 1,
