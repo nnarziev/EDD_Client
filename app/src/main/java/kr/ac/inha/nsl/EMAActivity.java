@@ -56,7 +56,7 @@ public class EMAActivity extends AppCompatActivity {
     //endregion
 
     DatabaseHelper db;
-    private short emaOrder;
+    private int emaOrder;
 
     private SharedPreferences loginPrefs;
 
@@ -97,7 +97,7 @@ public class EMAActivity extends AppCompatActivity {
 
         //emaResponses = new EmaResponses();
         //current_question = 1;
-        emaOrder = getIntent().getShortExtra("ema_order", (short) -1);
+        emaOrder = getIntent().getIntExtra("ema_order", -1);
 
         //prepareViewForQuestion(current_question);
     }

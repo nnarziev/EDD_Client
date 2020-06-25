@@ -78,6 +78,7 @@
         <service android:name=".services.LocationService" />
         <service android:name=".services.SendGPSStats" />
 
+        <receiver android:name=".receivers.EMAAlarmRcvr" />
         <receiver android:name=".receivers.GeofenceReceiver" />
         <receiver android:name=".receivers.ActivityRecognitionReceiver" />
         <receiver android:name=".receivers.ActivityTransitionsReceiver" />

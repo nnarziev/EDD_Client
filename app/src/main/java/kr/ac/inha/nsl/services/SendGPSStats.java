@@ -44,7 +44,7 @@ public class SendGPSStats extends IntentService {
             DatabaseHelper db = new DatabaseHelper(this);
             long time_end = System.currentTimeMillis();
             long time_start = time_end - SERVICE_START_X_MIN_BEFORE_EMA * 60 * 1000;
-            short emaOrder = intent.getShortExtra("ema_order", (short) -1);
+            int emaOrder = intent.getIntExtra("ema_order", -1);
             try {
                 Log.e(TAG, "EMA " + emaOrder + "-based GPS statistics");
                 if (readLocations(time_start, time_end) > 1) {

@@ -138,21 +138,6 @@ public class CustomSensorsService extends Service implements SensorEventListener
             long curTimestamp = System.currentTimeMillis();
             Calendar curCal = Calendar.getInstance();
 
-            //region Sending Notification periodically
-            short ema_order = Tools.getEMAOrderAtExactTime(curCal);
-            if (ema_order != 0 && canSendNotif) {
-                sendNotification(ema_order);
-                loginPrefs = getSharedPreferences("UserLogin", MODE_PRIVATE);
-                SharedPreferences.Editor editor = loginPrefs.edit();
-                editor.putBoolean("ema_btn_make_visible", true);
-                editor.apply();
-                canSendNotif = false;
-            }
-
-            if (curCal.get(Calendar.MINUTE) > 0)
-                canSendNotif = true;
-            //endregion
-
             //region Registering ACC sensor periodically
             int nowHour = curCal.get(Calendar.HOUR_OF_DAY);
             if (6 <= nowHour && nowHour < 22)  // register ACC only between 06.00 and 22.00

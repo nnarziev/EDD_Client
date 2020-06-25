@@ -111,7 +111,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //endregion
 
     //region DB operations with EMA data
-    synchronized boolean insertEMAData(short emaOrder, long timestamp, String answers) {
+    synchronized boolean insertEMAData(int emaOrder, long timestamp, String answers) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(EMA_COL_1, emaOrder);
