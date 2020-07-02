@@ -566,8 +566,8 @@ public class Tools {
         return ema_order;
     }
 
-    static short getEMAOrderFromRangeAfterEMA(Calendar cal) {
-        short ema_order = 0;
+    static int getEMAOrderFromRangeAfterEMA(Calendar cal) {
+        int ema_order = 0;
         long t = (cal.get(Calendar.HOUR_OF_DAY) * 3600 + cal.get(Calendar.MINUTE) * 60 + cal.get(Calendar.SECOND)) * 1000;
         if (EMAActivity.EMA_NOTIF_MILLIS[0] <= t && t <= EMAActivity.EMA_NOTIF_MILLIS[0] + EMA_BTN_VISIBLE_X_MIN_AFTER_EMA * 60 * 1000) {
             ema_order = 1;

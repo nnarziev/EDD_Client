@@ -98,7 +98,6 @@ public class EMAActivity extends AppCompatActivity {
         //emaResponses = new EmaResponses();
         //current_question = 1;
         emaOrder = getIntent().getIntExtra("ema_order", -1);
-
         //prepareViewForQuestion(current_question);
     }
 
@@ -155,7 +154,7 @@ public class EMAActivity extends AppCompatActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(activity, "Failed to submit to server", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(activity, "Failed to submit to server 1", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                                 break;
@@ -164,7 +163,7 @@ public class EMAActivity extends AppCompatActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(activity, "Failed to submit. (SERVER SIDE ERROR)", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(activity, "Failed to submit. (SERVER SIDE ERROR) 2", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                                 break;
@@ -176,7 +175,7 @@ public class EMAActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(activity, "Failed to submit to server", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(activity, "Failed to submit to server 3", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }

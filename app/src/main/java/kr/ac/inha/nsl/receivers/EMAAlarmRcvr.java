@@ -123,12 +123,15 @@ public class EMAAlarmRcvr extends BroadcastReceiver {
         firingCal4.set(Calendar.SECOND, 0); // particular second
         firingCal4.set(Calendar.MILLISECOND, 0); // particular second
 
-        if (ema_order == 1)
+        if (ema_order == 1){
             alarmManager.setWindow(AlarmManager.RTC_WAKEUP, firingCal2.getTimeInMillis(), 30000, pendingIntent2); //set from today
-        else if (ema_order == 2)
+        }
+        else if (ema_order == 2){
             alarmManager.setWindow(AlarmManager.RTC_WAKEUP, firingCal3.getTimeInMillis(), 30000, pendingIntent3); //set from today
-        else if (ema_order == 3)
+        }
+        else if (ema_order == 3){
             alarmManager.setWindow(AlarmManager.RTC_WAKEUP, firingCal4.getTimeInMillis(), 30000, pendingIntent4); //set from today
+        }
         else if (ema_order == 4) {
             firingCal1.add(Calendar.DAY_OF_MONTH, 1);
             alarmManager.setWindow(AlarmManager.RTC_WAKEUP, firingCal1.getTimeInMillis(), 30000, pendingIntent1); //set from today

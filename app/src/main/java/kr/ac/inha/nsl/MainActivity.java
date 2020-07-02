@@ -404,7 +404,7 @@ public class MainActivity extends Activity {
     }
 
     public void lateEMAClick(View view) {
-        short ema_order = Tools.getEMAOrderFromRangeAfterEMA(Calendar.getInstance());
+        int ema_order = Tools.getEMAOrderFromRangeAfterEMA(Calendar.getInstance());
         if (ema_order != 0) {
             Intent intent = new Intent(this, EMAActivity.class);
             Log.e(TAG, "ema_order: " + ema_order);

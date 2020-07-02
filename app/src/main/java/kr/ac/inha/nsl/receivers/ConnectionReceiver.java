@@ -57,14 +57,14 @@ public class ConnectionReceiver extends BroadcastReceiver {
 
         if (count > 0) {
             for (String[] raw : results_temp) {
-                submitEMAData(Short.parseShort(raw[0]),
+                submitEMAData(Integer.parseInt(raw[0]),
                         Long.parseLong(raw[1]),
                         raw[2]);
             }
         }
     }
 
-    private void submitEMAData(short emaOrder, long timestamp, String answers) {
+    private void submitEMAData(int emaOrder, long timestamp, String answers) {
         final SharedPreferences loginPrefs = context.getSharedPreferences("UserLogin", MODE_PRIVATE);
         Tools.execute(new FromServiceRunnable(
                 context.getString(R.string.url_ema_submit, context.getString(R.string.server_ip)),
@@ -79,7 +79,7 @@ public class ConnectionReceiver extends BroadcastReceiver {
                 String url = (String) args[0];
                 String id = (String) args[1];
                 String password = (String) args[2];
-                short emaOrder = (short) args[3];
+                int emaOrder = (int) args[3];
                 long timestamp = (long) args[4];
                 String answers = (String) args[5];
 
